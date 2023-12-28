@@ -3,10 +3,11 @@
 // mongoose.connect("mongodb://127.0.0.1:27017/wpu");
 
 //Atlas Database
+const dotenv = require("dotenv");
+dotenv.config();
+const URI = process.env.MONGODB_CONNECT_URI;
 const mongoose = require("mongoose");
-mongoose.connect(
-  "mongodb+srv://hifninazih:vaAtC7EZzumDbeMi@cluster0.3tc2s5b.mongodb.net/wpu?retryWrites=true&w=majority"
-);
+mongoose.connect(URI);
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
