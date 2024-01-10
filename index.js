@@ -1,5 +1,7 @@
 // Load Express
 const express = require("express");
+// Load path
+const path = require("path");
 // Load EJS
 const expressEjsLayouts = require("express-ejs-layouts");
 // Load Flash
@@ -23,8 +25,11 @@ const Contact = require("./models/contact");
 // Use ejs as view engine
 app.set("view engine", "ejs");
 app.use(expressEjsLayouts); //Third-party Middleware
-app.use(express.static("public")); //Build-in Middleware
+app.use(express.static(path.join(__dirname, "public"))); //Build-in Middleware
 app.use(express.urlencoded({ extended: true })); // URL-encoded Middleware untuk parsing body
+
+// setup view directory
+app.set("views", path.join(__dirname, "views"));
 
 // Konfigurasi Flash
 app.use(cookieParser("secret"));

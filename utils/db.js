@@ -5,7 +5,9 @@
 //Atlas Database
 const dotenv = require("dotenv");
 dotenv.config();
-const URI = process.env.MONGODB_CONNECT_URI;
+// const URI = process.env.MONGODB_CONNECT_URI;
+const URI =
+  "mongodb+srv://hifninazih:vaAtC7EZzumDbeMi@cluster0.3tc2s5b.mongodb.net/wpu?retryWrites=true&w=majority";
 const mongoose = require("mongoose");
 mongoose.connect(URI);
 
